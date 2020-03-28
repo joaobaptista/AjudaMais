@@ -1,0 +1,3 @@
+Esta pasta contém as firebase functions que vão rolar dentro do firebase, logo
+então o arquivo index não deve ser mantido no repositório publico, para algum
+eventual teste usar o arquivo index2.js localmente

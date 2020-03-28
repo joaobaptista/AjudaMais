@@ -11,6 +11,9 @@ firebase-debug.log*
 
 # Firebase config
 
+# Nodemailer config
+functions/index.js
+
 # Arquivos de undo do vim
 *un~
 
