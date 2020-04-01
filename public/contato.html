@@ -24,6 +24,7 @@
 </head>
 
 <body>
+  
   <header id="header">
     <div class="container d-flex">
       <div class="logo mr-auto">
@@ -31,11 +32,11 @@
       </div>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
+          <li ><a href="index.html#header">Home</a></li>
            <li><a href=index.html#services>O que é o COVID-19?</a></li>
            <li><a href="quarentena.html">Dicas para a Quarentena</a></li>
            <li><a href="outras.html">Iniciativas</a></li>
-           <li><a href="contato.html">Contato</a></li>
+           <li class="active"><a href="contato.html">Contato</a></li>
           <li class="get-started"><a href="index.html">Vamos Ajudar?</a></li>
         </ul>
       </nav>
@@ -89,11 +90,9 @@
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
-                <div class="loading">Cerregando o envio!</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Sua mensagem foi enviada! Obrigado!</div>
+                <div id="mensagem">Sua mensagem foi enviada! Obrigado!</div>
               </div>
-              <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
+              <div  class="text-center"><button id="btnEnvia" type="submit">Enviar Mensagem</button></div>
             </form>
           </div>
 
@@ -101,8 +100,6 @@
 
       </div>
     </section></center><!-- End Contact Section -->
-   
-
 
   </main>
   <footer id="footer">
@@ -116,6 +113,16 @@
       </div>
     </div>
   </footer>
+<script type='application/javascript'>
+    let mensagem = document.getElementById('mensagem');
+    mensagem.style.display = "none";
+    let botao = document.getElementById('btnEnvia');
+    botao.onclick = () => {
+      mensagem.style.display = "block"; 
+    }
+
+  </script> 
+
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
   <script src="assets/vendor/jquery/jquery.min.js"></script>
