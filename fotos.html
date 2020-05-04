@@ -32,6 +32,12 @@
 	    -webkit-text-stroke: 1px #F8F8F8;
 	    text-shadow: 3px 3px 3px black; 
     }
+    .nav-link {
+      color: #213B52;
+    }
+    .nav-link:hover {
+      color: #2E73BF;
+    }
   </style>
 </head>
   <body>
@@ -56,29 +62,90 @@
       <div class="row">
         <h2>Imagens para venda</h2>
       </div>
+      
       <!--  AQUI VAI O TEXTO PRINCIPAL DA ENTRADA   -->
       <div class="row">
         <p>LLorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet orem Ipsum Dolor Sit Amet </p>
       </div>
 
-      <div class="row" id="portaImgs">
+      <h2>Opções de Fotos:</h2>
+      <br>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home">Computador</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu1">Wallpaper</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu2">Fotos Impressas</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="home" class="container tab-pane active"><br>
+          
+          <div id="tituloComputador"></div>
+          <br>
+          <div class="row" id="computador"></div>
+
+        </div>
+        <div id="menu1" class="container tab-pane fade"><br>
+
+          <div id="tituloWallpaper"></div>
+          <br>
+          <div class="row" id="wallpaper"></div>
+
+        </div>
+        <div id="menu2" class="container tab-pane fade"><br>
+
+          <div id="tituloImpressas"></div>
+          <br>
+          <div class="row" id="impressa"></div>
+
+        </div>
       </div>
+  
+     
 
-    </div>
 
-    <script>
+
+      </div>
+      <script>
     
-      const cjto = [];
-        for(let x=1;x < 100;x++) {
-        cjto.push(x);
+      const colecao = [];
+      for(let x=1;x < 400;x++) {
+        colecao.push(x);
       }
       const pasta = 'fotos/';
       
-       
-      buscarFotos(cjto);
+      
+      buscarFotos(colecao);
+
+      const descricao = 
+        { 
+          1: `
+               Aqui vai a descrição da foto 1.
+             `,
+          2: `
+               Aqui vai a uma descrição mais comprida
+               que correseponde a foto 2.
+             `,
+          3: `
+               Descrição da 3 etc... 
+             `, 
+          201: `
+                 Aqui temos uma bela foto e talz...
+               `, 
+          301: `
+                 Aqui temos uma bela foto e talz...
+               `  
+        }
+
+
         
-      console.log('saiu , ufa!');
-     
       async function buscarFotos(colecao) {
         for ( let url of colecao ) {
           const data = await fetch(pasta+url+'.jpg');
@@ -86,24 +153,44 @@
           // Aqui vai as descrições conforme o modelo, é só ir adicionando
           // descrições conforme o numero da foto
 
-          const descricao = 
-            { 
-              1: `
-                  Aqui vai a descrição da foto 1.
-                 `,
-              2: `
-                  Aqui vai a uma descrição mais comprida
-                  que correseponde a foto 2.
-                 `,
-              3: `
-                  Descrição da 3 etc... 
-                 `
-            }
-
           if (data.ok) {
             const blob = await data.blob();
             const imgSrc = URL.createObjectURL(blob);
-            
+           
+            if ( url === 1 ) {
+
+              // categoria Computador
+              
+              const tituloComputador = `
+                <h1>Computador</h1>
+             `; 
+
+              juntar(tituloComputador, "tituloComputador") 
+
+            }
+            if ( url === 201 ) {
+
+              // categoria wallpaper
+              
+              const tituloWallpaper = `
+                <h1>Wallpaper</h1>
+             `; 
+
+              juntar(tituloWallpaper, "tituloWallpaper") 
+
+            }
+            if ( url === 301 ) {
+
+              // categoria impressas
+              
+              const tituloImpressas = `
+                <h1>Impressas</h1>
+             `; 
+
+              juntar(tituloImpressas, "tituloImpressas") 
+
+            }
+
             const textoPuro = `
                 <div class="col" style="background">
                   <div class="card img-fluid" style="width:300px">
@@ -118,18 +205,30 @@
                   </div>
                 </div>
              `; 
-
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(textoPuro, "text/html")
-            const div = doc.body
-            document.getElementById("portaImgs").appendChild(div);
+            if( url > 0 && url < 201 ) {
+              juntar(textoPuro,"computador")
+            }
+            if( url > 200 && url < 301 ) {
+              juntar(textoPuro,"wallpaper")
+            }
+            if( url > 300 && url < 400 ) {
+              juntar(textoPuro,"impressa")
+            }
           }else{
-            console.log('pasta nao existte');
+            console.log('Não existe');
             //break;
           }
         }
       }
+          
+      function juntar(elementos,divX) {
          
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(elementos, "text/html")
+        const div = doc.body
+        document.getElementById(divX).appendChild(div);
+
+      }
 
      </script>
 
