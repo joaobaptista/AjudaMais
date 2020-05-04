@@ -56,6 +56,7 @@
       <div class="row">
         <h2>Imagens para venda</h2>
       </div>
+      <!--  AQUI VAI O TEXTO PRINCIPAL DA ENTRADA   -->
       <div class="row">
         <p>LLorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet orem Ipsum Dolor Sit Amet </p>
       </div>
@@ -67,37 +68,66 @@
 
     <script>
     
-      const cjto = ['fotos/1.jpg','fotos/2.jpg','fotos/3.jpg','fotos/4.jpg'];
-      for ( let foto of cjto ) {
-        buscarFotos(foto)
+      const cjto = [];
+        for(let x=1;x < 100;x++) {
+        cjto.push(x);
       }
-      for ( let foto of cjto ) {
-        buscarFotos(foto)
-      }
-      for ( let foto of cjto ) {
-        buscarFotos(foto)
-      }
-     
-      async function buscarFotos(url) {
-        const data = await fetch(url);
-        const blob = await data.blob();
-        const imgSrc = URL.createObjectURL(blob);
+      const pasta = 'fotos/';
+      
+       
+      buscarFotos(cjto);
         
-        const textoPuro = `
-            <div class="col" style="background">
-              <div class="card img-fluid" style="width:300px">
-                <img class="card-img-top" src="${imgSrc}" alt="Card image" style="width:100%">
-                <div class="card-img-overlay">
-                  <h4 class="card-title example9">666</h4>
-                </div>
-              </div>
-            </div>
-         `; 
+      console.log('saiu , ufa!');
+     
+      async function buscarFotos(colecao) {
+        for ( let url of colecao ) {
+          const data = await fetch(pasta+url+'.jpg');
+          
+          // Aqui vai as descrições conforme o modelo, é só ir adicionando
+          // descrições conforme o numero da foto
 
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(textoPuro, "text/html")
-        const div = doc.body
-        document.getElementById("portaImgs").appendChild(div);
+          const descricao = 
+            { 
+              1: `
+                  Aqui vai a descrição da foto 1.
+                 `,
+              2: `
+                  Aqui vai a uma descrição mais comprida
+                  que correseponde a foto 2.
+                 `,
+              3: `
+                  Descrição da 3 etc... 
+                 `
+            }
+
+          if (data.ok) {
+            const blob = await data.blob();
+            const imgSrc = URL.createObjectURL(blob);
+            
+            const textoPuro = `
+                <div class="col" style="background">
+                  <div class="card img-fluid" style="width:300px">
+                    <img class="card-img-top" src="${imgSrc}" alt="Card image" style="width:100%">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title example9">${url}</h4>
+                    </div>
+
+                  <div class="card-footer">
+                    ${descricao[url]}
+                  </div>
+                  </div>
+                </div>
+             `; 
+
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(textoPuro, "text/html")
+            const div = doc.body
+            document.getElementById("portaImgs").appendChild(div);
+          }else{
+            console.log('pasta nao existte');
+            //break;
+          }
+        }
       }
          
 
