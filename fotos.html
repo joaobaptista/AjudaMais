@@ -131,11 +131,17 @@
       <script>
     
       const colecao = [];
-      for(let x=1;x < 400;x++) {
+      for(let x=1;x < 16;x++) {
+        colecao.push(x);
+      }
+      for(let x=201;x < 216;x++) {
+        colecao.push(x);
+      }
+      for(let x=301;x < 304;x++) {
         colecao.push(x);
       }
       const pasta = 'fotos/';
-      
+     
       
       buscarFotos(colecao);
 
@@ -250,74 +256,69 @@
         
       async function buscarFotos(colecao) {
         for ( let url of colecao ) {
-          const data = await fetch(pasta+url+'.jpg');
+          // const data = await fetch(pasta+url+'.jpg');
+          fetch(pasta+url+'.jpg').then( data => {
+
+            if (data.ok) {
+              data.blob().then( blob => {
+
+                const imgSrc = URL.createObjectURL(blob);
+             
+                if ( url === 1 ) {
+                  // categoria Computador
+                  const tituloComputador = `
+                    <h1>Wallpaper para Computador</h1>
+                 `; 
+                  juntar(tituloComputador, "tituloComputador") 
+                }
           
-
-          if (data.ok) {
-            const blob = await data.blob();
-            const imgSrc = URL.createObjectURL(blob);
-           
-            if ( url === 1 ) {
-
-              // categoria Computador
-              
-              const tituloComputador = `
-                <h1>Wallpaper para Computador</h1>
-             `; 
-
-              juntar(tituloComputador, "tituloComputador") 
-
-            }
-            if ( url === 201 ) {
-
-              // categoria wallpaper
-              
-              const tituloWallpaper = `
-                <h1>Wallpaper para Celular</h1>
-             `; 
-
-              juntar(tituloWallpaper, "tituloWallpaper") 
-
-            }
-            if ( url === 301 ) {
-
-              // categoria impressas
-              
-              const tituloImpressas = `
-                <h1>Impressas</h1>
-             `; 
-
-              juntar(tituloImpressas, "tituloImpressas") 
-
-            }
-
-            const textoPuro = `
-                <div class="col" style="background">
-                  <div class="card img-fluid" style="width:300px">
-                    <img class="card-img-top" src="${imgSrc}" alt="Card image" style="width:100%">
-                    <div class="card-img-overlay">
-                      <h4 class="card-title example9">${url}</h4>
+                if ( url === 201 ) {
+                  // categoria wallpaper
+                  const tituloWallpaper = `
+                    <h1>Wallpaper para Celular</h1>
+                 `; 
+                  juntar(tituloWallpaper, "tituloWallpaper") 
+                }
+                
+                if ( url === 301 ) {
+                  // categoria impressas
+                  const tituloImpressas = `
+                    <h1>Impressas</h1>
+                 `; 
+                  juntar(tituloImpressas, "tituloImpressas") 
+                }
+  
+                const textoPuro = `
+                    <div class="col" style="background">
+                      <div class="card img-fluid" style="width:300px">
+                        <img class="card-img-top" src="${imgSrc}" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay">
+                          <h4 class="card-title example9">${url}</h4>
+                        </div>
+  
+                      <div class="card-footer">
+                        ${descricao[url]}
+                      </div>
+                      </div>
                     </div>
-
-                  <div class="card-footer">
-                    ${descricao[url]}
-                  </div>
-                  </div>
-                </div>
-             `; 
-            if( url > 0 && url < 201 ) {
-              juntar(textoPuro,"computador")
+                 `; 
+                if( url > 0 && url < 201 ) {
+                  juntar(textoPuro,"computador")
+                }
+                if( url > 200 && url < 301 ) {
+                  juntar(textoPuro,"wallpaper")
+                }
+                if( url > 300 && url < 400 ) {
+                  juntar(textoPuro,"impressa")
+                }
+              }) 
+            }else{
+              console.log('Não existe');
+              //break;
             }
-            if( url > 200 && url < 301 ) {
-              juntar(textoPuro,"wallpaper")
-            }
-            if( url > 300 && url < 400 ) {
-              juntar(textoPuro,"impressa")
-            }
-          }else{
-            console.log('Não existe');
-            //break;
-          }
+  
+          })
+  
         }
       }
           
