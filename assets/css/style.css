@@ -14,12 +14,10 @@ body {
 }
 
 a {
-  color: #fdc134;
 }
 
 a:hover {
-  color: #fdd067;
-  text-decoration: none;
+  color:black;
 }
 
 h1, h2, h3, h4, h5, h6 {
