@@ -22,9 +22,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link href="assets/css/style.css" rel="stylesheet">
-  <style>
+  <style> 
+    .pai-local {
+      position: relative;
+      padding: 10px;
+    }
+    .espaco-interno {
+      margin: 10px;
+    }
     .card {
       margin: 10px;
+    }
+    .centro-horizontal {
+      position: absolute;
+      right:0;
     }
     .example9{
 	    color: white;
@@ -43,10 +54,15 @@
   <body>
     
     <header id="header">
-      <div class="container d-flex">
+      <div class="container d-flex" id="cabecalho">
         <div class="logo mr-auto">
-          <img src="assets/img/head.png"><h1 class="text-light"><a href="index.html"><span></span></a></h1>
-        </div>
+          <img src="assets/img/head.png">
+          <h1 class="text-light">
+            <a href="index.html">
+              <span></span>
+            </a>
+          </h1>
+        </div>  
         <nav class="nav-menu d-none d-lg-block">
           <ul>
             <li ><a href="index.html#header">Home</a></li>
@@ -58,34 +74,27 @@
         </nav>
       </div>
     </header>
-    <div class="container" >
-      <div class="row">
-      	
-        <h2><br>Projeto Olhar+<br></h2>
+
+   <div class="container" >
+      <div class="" style="text-align:center">
+        <br>
+        <h2>Projeto Olhar+</h2>
       </div>
-      
       <!--  AQUI VAI O TEXTO PRINCIPAL DA ENTRADA   -->
-      <div class="row">
-      <p>
-
-      <b>O Projeto Olhar+</b> busca valorizar o seu empenho em ajudar quem precisa, retribuindo com Wallpapers exclusivos e fotografias impressas assinadas e com tiragem limitada (para receber a fotografia impressa, é necessário informar um endereço em território nacional. No momento não estamos enviando para o exterior).<br><br>
-
-      <b>Como funciona?</b><br>
-      Basta efetuar qualquer doação de R$10.00 ou mais, seja para o projeto <b>"Máscaras para Todos"</b>, ou para qualquer outro projeto social/hospital/ONG cadastrada no portal <b>AJUDA+</b>. A cada R$10.00 em doações, você terá direito a 1 (UM) Wallpaper para celular ou computador. Para doações de valor maior ou igual a R$50.00, você poderá escolher entre uma foto impressa em papel Satin fotográfico, no tamanho A4 ou 5+ Wallpapers. 100% dos valores arrecadados pelo projeto Olhar+ ao "Máscara para Todos" será destinado à confecção de máscaras e compra de produtos de higiene para ser distribuídos para pessoas em situação de rua, projetos sociais, entregadores e motoristas de aplicativos. O valor do envio das fotos, via Correios, será pago pelos fundadores da plataforma. Todos os valores arrecadados, bem como as doações poderão ser visualizadas no <a href="LINK">LINK</a><br><br>
-
-
-      <b>Solicitando Wallpapers:</b><br>
-      Preencha o formulário e anexe o comprovante da sua doação, que enviaremos o link para download em até 24 horas: <a href="https://forms.gle/ccqb33qJ9WtPEzZcA">Clique Aqui para acessar o Formulário</a>.<br><br>
-      
-      <b>Solicitando fotos Impressas:</b><br>
-      Preencha o formulário com o seu endereço completo e anexe o comprovante da sua doação. Faremos o envio em até 2 dias úteis. O prazo médio para a entrega é de 5 a 10 dias úteis. <a href="https://forms.gle/ff8tDHLN2UgJmaZU9">Clique Aqui para acessar o Formulário</a>.<br>
-
-      </p>
+      <div class="row espaco-interno text-center">
+        <p>
+          <b>O Projeto Olhar+</b> busca valorizar o seu empenho em ajudar quem precisa, retribuindo com Wallpapers exclusivos e fotografias impressas assinadas e com tiragem limitada (para receber a fotografia impressa, é necessário informar um endereço em território nacional. No momento não estamos enviando para o exterior).<br><br>
+          <b>Como funciona?</b><br>
+          Basta efetuar qualquer doação de R$10.00 ou mais, seja para o projeto <b>"Máscaras para Todos"</b>, ou para qualquer outro projeto social/hospital/ONG cadastrada no portal <b>AJUDA+</b>. A cada R$10.00 em doações, você terá direito a 1 (UM) Wallpaper para celular ou computador. Para doações de valor maior ou igual a R$50.00, você poderá escolher entre uma foto impressa em papel Satin fotográfico, no tamanho A4 ou 5+ Wallpapers. 100% dos valores arrecadados pelo projeto Olhar+ ao "Máscara para Todos" será destinado à confecção de máscaras e compra de produtos de higiene para ser distribuídos para pessoas em situação de rua, projetos sociais, entregadores e motoristas de aplicativos. O valor do envio das fotos, via Correios, será pago pelos fundadores da plataforma. Todos os valores arrecadados, bem como as doações poderão ser visualizadas no <a href="LINK">LINK</a><br><br>
+          <b>Solicitando Wallpapers:</b><br>
+          Preencha o formulário e anexe o comprovante da sua doação, que enviaremos o link para download em até 24 horas: <a href="https://forms.gle/ccqb33qJ9WtPEzZcA">Clique Aqui para acessar o Formulário</a>.<br><br>
+          <b>Solicitando fotos Impressas:</b><br>
+          Preencha o formulário com o seu endereço completo e anexe o comprovante da sua doação. Faremos o envio em até 2 dias úteis. O prazo médio para a entrega é de 5 a 10 dias úteis. <a href="https://forms.gle/ff8tDHLN2UgJmaZU9">Clique Aqui para acessar o Formulário</a>.<br>
+        </p>
       </div>
 
       <h2>Opções de Fotos:</h2>
       <br>
-      <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#home">Wallpapers para Computador</a>
@@ -98,7 +107,6 @@
         </li>
       </ul>
 
-      <!-- Tab panes -->
       <div class="tab-content">
         <div id="home" class="container tab-pane active"><br>
           
@@ -122,227 +130,8 @@
 
         </div>
       </div>
-  
-     
+    </div>
 
-
-
-      </div>
-      <script>
-    
-      const colecao = [];
-      for(let x=1;x < 16;x++) {
-        colecao.push(x);
-      }
-      for(let x=201;x < 216;x++) {
-        colecao.push(x);
-      }
-      for(let x=301;x < 308;x++) {
-        colecao.push(x);
-      }
-      const pasta = 'fotos/';
-     
-      
-      buscarFotos(colecao);
-
-      const descricao = 
-        { 
-              1: `
-                  Pôr do sol às margens do Rio Douro. Porto - Portugal.
-                 `,
-              2: `
-                  Simetria do Louvre. Museu do Louvre, Paris - França.
-                 `,
-              3: `
-                  Pirâmide do Louvre. Museu do Louvre, Paris - França. 
-                 `,
-              4: `
-                  Palácio de Westminster à noite. Londres - Inglaterra
-                 ` ,
-              5: `
-                  Barco à vela ao pôr do sol. Hillarys - Austrália.
-                 `,
-              6: `
-                  Pôr do sol Azul. Hillarys - Austrália.
-                 `,
-              7: `
-                  Pôr do sol no Rio Tâmisa. Londres - Inglaterra. 
-                 `,
-              8: `
-                  Caminho a El Chaltén. Ruta 27 - Argentina
-                 `,
-              9: `
-                  Cavalos na Patagônia. El Calafate - Argentina.
-                 `,
-              10: `
-                  Névoa no Glaciar Perito Monero. El Calafate - Argentina. 
-                 `,
-              11: `
-                  Sombra do Coqueiro. Rio Grande do Norte - Brasil
-                  `,
-              12: `
-                  Cocos. Praia de Carneiros - Brasil
-                 `,
-              13: `
-                  Passeio de Ônibus. San Andrés - Colombia.
-                 `,
-              14: `
-                  Golden Hour no Porto. Porto - Portugal. 
-                 `,
-              15: `
-                  Long Tail Boat. Ko Lao Lading - Tailândia.
-                  `,    
-              
-
-              201: `
-                 Vista para a Ilha Johny Cay. San Andrés - Colombia
-                  `, 
-              202: `
-                  Coqueiro sob o sol. Rio Grande do Norte - Brasil.
-                 `,
-              203: `
-                  Salto para o mar. San Andrés - Colombia. 
-                 `,
-              204: `
-                  Caminho a El Chaltén. Ruta 27 - Argentina.
-                 ` ,
-              205: `
-                  Direto para as Montanhas. Ruta 27 - Argentina.
-                 `,
-              206: `
-                  Cavalos na Patagônia. El Calafate - Argentina.
-                 `,
-              207: `
-                  London Eye em tempos de Natal. Londres - Inglaterra. 
-                 `,
-              208: `
-                  The Shard à noite. Londres - Inglaterra.
-                 `,
-              209: `
-                  Torre Eiffel à noite. Paris - França
-                 `,
-              210: `
-                  Orloj. Praga - República Tcheca. 
-                 `,
-              211: `
-                  Casa Dançante e o antigo Tram. Praga - República Tcheca.
-                 `,
-              212: `
-                  Castelo de Praga ao entardecer. Praga - República Tcheca.
-                 `, 
-              213: `
-                  Entardecer no Cais da Ribeira. Porto - Portugal. 
-                 `,
-              214: `
-                  Ruas de Dubrovnik. Croácia.
-                 `,
-              215: `
-                  Torre Reno ao Céu. Dusseldorf - Alemanha.
-                 `,   
-              
-
-              301: `
-                 Passeio no Chateau de Chenonceau. Chenonceaux - França. (Doação Mínima = R$50.00/Tiragem Máxima 20 Impressões)
-               ` , 
-              302: `
-                 Arco do Triunfo. Paris - França. (Doação Mínima = R$50.00/Tiragem Máxima 20 Impressões)
-               ` , 
-              303: `
-                 Detalhes da Torre Eiffe. Paris - França (Doação Mínima = R$50.00/Tiragem Máxima 20 Impressões)
-               ` ,  
-              304: `
-                 Basílica de São Pedro em um dia Azul. Cidade do Vaticano (Doação Mínima = R$50.00/Tiragem Máxima 20 Impressões)
-               ` , 
-              305: `
-                 Lago di Carezza sob a neve. Nova Levante - Itália (Doação Mínima = R$50.00/Tiragem Máxima 20 Impressões)
-               ` , 
-              306: `
-                 Palácio de Westminster à noite. Londres - Inglaterra (Doação Mínima = R$100.00/Tiragem Máxima 10 Impressões)
-               ` ,  
-        }
-
-
-        
-      async function buscarFotos(colecao) {
-        for ( let url of colecao ) {
-          // const data = await fetch(pasta+url+'.jpg');
-          fetch(pasta+url+'.jpg').then( data => {
-
-            if (data.ok) {
-              data.blob().then( blob => {
-
-                const imgSrc = URL.createObjectURL(blob);
-             
-                if ( url === 1 ) {
-                  // categoria Computador
-                  const tituloComputador = `
-                    <h1>Wallpaper para Computador</h1>
-                 `; 
-                  juntar(tituloComputador, "tituloComputador") 
-                }
-          
-                if ( url === 201 ) {
-                  // categoria wallpaper
-                  const tituloWallpaper = `
-                    <h1>Wallpaper para Celular</h1>
-                 `; 
-                  juntar(tituloWallpaper, "tituloWallpaper") 
-                }
-                
-                if ( url === 301 ) {
-                  // categoria impressas
-                  const tituloImpressas = `
-                    <h1>Impressas</h1>
-                 `; 
-                  juntar(tituloImpressas, "tituloImpressas") 
-                }
-  
-                const textoPuro = `
-                    <div class="col" style="background">
-                      <div class="card img-fluid" style="width:300px">
-                        <img class="card-img-top" src="${imgSrc}" alt="Card image" style="width:100%">
-                        <div class="card-img-overlay">
-                          <h4 class="card-title example9">${url}</h4>
-                        </div>
-  
-                      <div class="card-footer">
-                        ${descricao[url]}
-                      </div>
-                      </div>
-                    </div>
-                 `; 
-                if( url > 0 && url < 201 ) {
-                  juntar(textoPuro,"computador")
-                }
-                if( url > 200 && url < 301 ) {
-                  juntar(textoPuro,"wallpaper")
-                }
-                if( url > 300 && url < 400 ) {
-                  juntar(textoPuro,"impressa")
-                }
-              }) 
-            }else{
-              console.log('Não existe');
-              //break;
-            }
-  
-          })
-  
-        }
-      }
-          
-      function juntar(elementos,divX) {
-         
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(elementos, "text/html")
-        const div = doc.body
-        document.getElementById(divX).appendChild(div);
-
-      }
-
-     </script>
-
-    
     <div class="jumbotron text-center" style="margin-bottom:0; background-color: #474e5d;">
       <div class="copyright" style="color:white">
         <b>Ajuda+</b>
@@ -361,6 +150,7 @@
     <script src="assets/vendor/venobox/venobox.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/foto.js"></script>
     
   </body>
   
