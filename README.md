@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://ajudamais.org/assets/img/mascara.jpg" title="hover text">
+  <img src="https://ajudamais.org/assets/img/mascara.jpg" title="hover text" width=150 height=150>
 </p>
 
 
