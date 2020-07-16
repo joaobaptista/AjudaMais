@@ -1,6 +1,14 @@
-Site projetado por João Baptista, José Américo, Jorge Juno e Mariana Machado para ajudar a amenizar a situação de pandemia causada pelo Covid19 no Brasil.
+<p align="center">
+  <img src="https://ajudamais.org/assets/img/mascara.jpg" title="hover text" width=150 height=150>
+</p>
 
-No site há centenas de locais para doações de alimentos e produtos de higiene.
-Há duas campanhas ativas: Olhar+ e Máscaras Para Todos. Através de doações, estamos confeccionando máscaras e doando para pessoas em situação de risco e ONGs de Porto Alegre.
 
-ajudamais.org
+O que é o Ajuda+?
+
+Para ajudar quem quer ajudar! Foi com esse intuito que 3 estudantes dos cursos de tecnologia da Fadergs se uniram para criar essa plataforma. Aqui você encontrará informações de locais que precisam da sua ajuda neste momento e também atividades para passar o tempo em quarentena com qualidade.
+
+
+Faça sua parte e compartilhe essa ideia em suas Redes Sociais!
+
+
+www.ajudamais.org
